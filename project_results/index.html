@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ethical Decision Making Using NLP</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f3f6fb;
+            color: #263238;
+        }
+
+        header {
+            background: #3949ab;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            font-size: 17px;
+            margin-top: 12px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #3949ab;
+            margin-top: 0;
+            border-bottom: 2px solid #e8eaf6;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #455a64;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .result-box {
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            background: #f5f7ff;
+            border-left: 5px solid #3949ab;
+        }
+
+        .unethical {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .ethical {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .metrics {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .metrics th,
+        .metrics td {
+            border: 1px solid #ddd;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .metrics th {
+            background: #3949ab;
+            color: white;
+        }
+
+        .metrics tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+
+        .graph-box {
+            background: #fafafa;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .graph-box h3 {
+            margin-top: 0;
+        }
+
+        .graph-box img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            margin: 20px auto 5px auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .note {
+            background: #fff8e1;
+            border-left: 5px solid #ffb300;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #263238;
+            color: white;
+            margin-top: 30px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>Ethical Decision Making Using NLP</h1>
+
+    <p>
+        Artificial Intelligence | Natural Language Processing
+    </p>
+
+    <p>
+        An NLP-based system for detecting bias and supporting fair decision-making.
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- 1. PROJECT OVERVIEW -->
+
+    <div class="section">
+
+        <h2>1. Project Overview</h2>
+
+        <p>
+            This project uses Natural Language Processing (NLP) to
+            analyze decision statements and identify whether a decision
+            is ethical or unethical.
+        </p>
+
+        <p>
+            The system also detects possible types of bias and provides
+            a fair recommendation to support ethical decision-making.
+        </p>
+
+    </div>
+
+
+    <!-- 2. OBJECTIVE -->
+
+    <div class="section">
+
+        <h2>2. Objective</h2>
+
+        <ul>
+
+            <li>
+                Detect whether a decision statement is Ethical or Unethical.
+            </li>
+
+            <li>
+                Identify possible types of bias in the decision.
+            </li>
+
+            <li>
+                Provide a fair recommendation for biased decisions.
+            </li>
+
+            <li>
+                Compare traditional machine learning with a transformer model.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 3. MODELS -->
+
+    <div class="section">
+
+        <h2>3. Models Used</h2>
+
+        <ul>
+
+            <li>
+                <strong>TF-IDF + Logistic Regression</strong>
+                – used as the baseline model for ethical classification.
+            </li>
+
+            <li>
+                <strong>DistilBERT</strong>
+                – used as the transformer model for Ethical/Unethical
+                classification.
+            </li>
+
+            <li>
+                <strong>TF-IDF + Logistic Regression</strong>
+                – used for detecting the type of bias.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 4. DATASET -->
+
+    <div class="section">
+
+        <h2>4. Dataset</h2>
+
+        <p>
+            A custom labeled dataset containing ethically relevant
+            decision statements was developed for this academic prototype.
+        </p>
+
+        <p>
+            The dataset contains <strong>296 decision statements</strong>.
+        </p>
+
+        <h3>Bias Categories</h3>
+
+        <ul>
+
+            <li>Age Bias</li>
+
+            <li>Gender Bias</li>
+
+            <li>Disability Bias</li>
+
+            <li>Cultural/Ethnic Bias</li>
+
+            <li>Language Bias</li>
+
+            <li>No Bias</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 5. SAMPLE OUTPUTS -->
+
+    <div class="section">
+
+        <h2>5. Sample Outputs</h2>
+
+
+        <div class="result-box">
+
+            <h3>Example 1 – Age Bias</h3>
+
+            <p>
+                <strong>Decision:</strong>
+                Reject older applicants because they may not understand
+                modern technology.
+            </p>
+
+            <p>
+                <strong>Ethical Status:</strong>
+                <span class="unethical">🔴 Unethical</span>
+            </p>
+
+            <p>
+                <strong>Detected Bias:</strong>
+                Age Bias
+            </p>
+
+            <p>
+                <strong>Fair Recommendation:</strong>
+                Do not judge applicants based on age. Evaluate their
+                skills, experience, and ability to learn.
+            </p>
+
+        </div>
+
+
+        <div class="result-box">
+
+            <h3>Example 2 – Gender Bias</h3>
+
+            <p>
+                <strong>Decision:</strong>
+                Reject female applicants for technical jobs.
+            </p>
+
+            <p>
+                <strong>Ethical Status:</strong>
+                <span class="unethical">🔴 Unethical</span>
+            </p>
+
+            <p>
+                <strong>Detected Bias:</strong>
+                Gender Bias
+            </p>
+
+            <p>
+                <strong>Fair Recommendation:</strong>
+                Do not make decisions based on gender. Evaluate all
+                candidates using the same qualifications.
+            </p>
+
+        </div>
+
+
+        <div class="result-box">
+
+            <h3>Example 3 – Disability Bias</h3>
+
+            <p>
+                <strong>Decision:</strong>
+                Reject a candidate because they have a physical disability.
+            </p>
+
+            <p>
+                <strong>Ethical Status:</strong>
+                <span class="unethical">🔴 Unethical</span>
+            </p>
+
+            <p>
+                <strong>Detected Bias:</strong>
+                Disability Bias
+            </p>
+
+        </div>
+
+
+        <div class="result-box">
+
+            <h3>Example 4 – Language Bias</h3>
+
+            <p>
+                <strong>Decision:</strong>
+                Reject a candidate because they have a regional accent.
+            </p>
+
+            <p>
+                <strong>Ethical Status:</strong>
+                <span class="unethical">🔴 Unethical</span>
+            </p>
+
+            <p>
+                <strong>Detected Bias:</strong>
+                Language Bias
+            </p>
+
+        </div>
+
+
+        <div class="result-box">
+
+            <h3>Example 5 – Fair Decision</h3>
+
+            <p>
+                <strong>Decision:</strong>
+                Select candidates based on their technical skills
+                and qualifications.
+            </p>
+
+            <p>
+                <strong>Ethical Status:</strong>
+                <span class="ethical">🟢 Ethical</span>
+            </p>
+
+            <p>
+                <strong>Detected Bias:</strong>
+                No Bias
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- 6. SYSTEM ARCHITECTURE -->
+
+    <div class="section">
+
+        <h2>6. System Workflow</h2>
+
+        <p><strong>User Decision Statement</strong></p>
+
+        <p>↓</p>
+
+        <p><strong>Flask Web Interface</strong></p>
+
+        <p>↓</p>
+
+        <p>
+            <strong>DistilBERT</strong>
+            → Ethical / Unethical
+        </p>
+
+        <p>+</p>
+
+        <p>
+            <strong>TF-IDF + Logistic Regression</strong>
+            → Bias Type
+        </p>
+
+        <p>↓</p>
+
+        <p><strong>Fair Recommendation</strong></p>
+
+        <p>↓</p>
+
+        <p><strong>Final Result + Model Confidence</strong></p>
+
+    </div>
+
+
+    <!-- 7. MODEL EVALUATION -->
+
+    <div class="section">
+
+        <h2>7. Model Evaluation</h2>
+
+        <p>
+            The models were evaluated using Accuracy, Precision,
+            Recall and F1 Score.
+        </p>
+
+        <table class="metrics">
+
+            <tr>
+
+                <th>Metric</th>
+
+                <th>TF-IDF + Logistic Regression</th>
+
+                <th>DistilBERT</th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Accuracy</td>
+
+                <td>93.33%</td>
+
+                <td>See evaluation output</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Precision</td>
+
+                <td>See evaluation output</td>
+
+                <td>See evaluation output</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Recall</td>
+
+                <td>See evaluation output</td>
+
+                <td>See evaluation output</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>F1 Score</td>
+
+                <td>See evaluation output</td>
+
+                <td>See evaluation output</td>
+
+            </tr>
+
+        </table>
+
+
+        <div class="note">
+
+            <strong>Note:</strong>
+
+            The dataset is a custom academic dataset, so the evaluation
+            results should be interpreted as prototype results rather
+            than real-world performance.
+
+        </div>
+
+    </div>
+
+
+    <!-- 8. MODEL COMPARISON -->
+
+    <div class="section">
+
+        <h2>8. Model Comparison</h2>
+
+        <p>
+            The project compares a traditional TF-IDF based machine
+            learning approach with the DistilBERT transformer model.
+        </p>
+
+        <ul>
+
+            <li>
+                TF-IDF converts text into numerical features.
+            </li>
+
+            <li>
+                Logistic Regression performs classification.
+            </li>
+
+            <li>
+                DistilBERT uses contextual language representations.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 9. CONFUSION MATRICES -->
+
+    <div class="section">
+
+        <h2>9. Confusion Matrices</h2>
+
+        <p>
+            Confusion matrices show the classification performance
+            of the models on the test data.
+        </p>
+
+    </div>
+
+
+    <!-- 10. EVALUATION GRAPHS -->
+
+    <div class="section">
+
+        <h2>10. Evaluation Graphs</h2>
+
+
+        <!-- MODEL COMPARISON -->
+
+        <div class="graph-box">
+
+            <h3>Model Comparison</h3>
+
+            <p>
+                Comparison of the evaluation metrics for the two NLP models.
+            </p>
+
+            <img
+                src="./model_comparison.png"
+                alt="Model Comparison Graph"
+            >
+
+        </div>
+
+
+        <!-- TF-IDF -->
+
+        <div class="graph-box">
+
+            <h3>TF-IDF + Logistic Regression Confusion Matrix</h3>
+
+            <p>
+                Confusion matrix showing the classification performance
+                of the baseline model.
+            </p>
+
+            <img
+                src="./confusion_matrix_tfidf.png"
+                alt="TF-IDF Confusion Matrix"
+            >
+
+        </div>
+
+
+        <!-- DISTILBERT -->
+
+        <div class="graph-box">
+
+            <h3>DistilBERT Confusion Matrix</h3>
+
+            <p>
+                Confusion matrix showing the classification performance
+                of the transformer model.
+            </p>
+
+            <img
+                src="./confusion_matrix_distilbert.png"
+                alt="DistilBERT Confusion Matrix"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- 11. ADVANTAGES -->
+
+    <div class="section">
+
+        <h2>11. Advantages</h2>
+
+        <ul>
+
+            <li>Identifies potentially unethical decisions.</li>
+
+            <li>Detects different types of bias.</li>
+
+            <li>Provides fair recommendations.</li>
+
+            <li>Uses both traditional ML and transformer technology.</li>
+
+            <li>Provides an easy-to-use web interface.</li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 12. LIMITATIONS -->
+
+    <div class="section">
+
+        <h2>12. Limitations</h2>
+
+        <ul>
+
+            <li>
+                The dataset is relatively small and custom-built.
+            </li>
+
+            <li>
+                The system is an academic prototype.
+            </li>
+
+            <li>
+                Model confidence is not the same as calibrated probability.
+            </li>
+
+            <li>
+                The system may not handle every possible ethical situation.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- 13. CONCLUSION -->
+
+    <div class="section">
+
+        <h2>13. Conclusion</h2>
+
+        <p>
+            The proposed NLP system demonstrates how Artificial
+            Intelligence can assist in identifying potentially biased
+            decisions and supporting fairer decision-making.
+        </p>
+
+        <p>
+            The system combines traditional machine learning with a
+            transformer-based model and provides an interactive Flask
+            interface for analyzing decision statements.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<footer>
+
+    MSc Artificial Intelligence |
+    Natural Language Processing
+
+</footer>
+
+
+</body>
+
+</html>
