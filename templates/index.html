@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ethical Decision Making Using NLP</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #263238;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 130px;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #3949ab;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            background: #3949ab;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #303f9f;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f5f7ff;
+            border-radius: 10px;
+            border-left: 5px solid #3949ab;
+        }
+
+        .result h2 {
+            margin-top: 0;
+            color: #263238;
+        }
+
+        .result p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .status {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .unethical {
+            color: #d32f2f;
+        }
+
+        .ethical {
+            color: #2e7d32;
+        }
+
+        .confidence {
+            background: #e3f2fd;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .bias {
+            background: #fff3cd;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .recommendation {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 8px;
+        }
+
+        .recommendation p {
+            margin-bottom: 0;
+        }
+
+        .examples {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 10px;
+        }
+
+        .examples h3 {
+            margin-top: 0;
+        }
+
+        .examples p {
+            color: #555;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 13px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- PROJECT TITLE -->
+
+    <h1>
+        Ethical Decision Making Using NLP
+    </h1>
+
+    <p class="description">
+        An NLP-based system for detecting bias and supporting fair decision-making.
+    </p>
+
+
+    <!-- INPUT SECTION -->
+
+    <label for="decision">
+        Enter a Decision Statement:
+    </label>
+
+    <form method="POST">
+
+        <textarea
+            id="decision"
+            name="decision"
+            placeholder="Example: Reject older applicants because they may not understand modern technology."
+            required
+        >{{ user_input }}</textarea>
+
+        <button type="submit">
+            Analyze Decision
+        </button>
+
+    </form>
+
+
+    <!-- RESULT SECTION -->
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>
+            Analysis Result
+        </h2>
+
+
+        <!-- DECISION -->
+
+        <p>
+
+            <strong>
+                Decision:
+            </strong>
+
+            {{ user_input }}
+
+        </p>
+
+
+        <!-- ETHICAL STATUS -->
+
+        <p>
+
+            <strong>
+                Ethical Status:
+            </strong>
+
+            {% if result == "Unethical" %}
+
+                <span class="status unethical">
+
+                    🔴 {{ result }}
+
+                </span>
+
+            {% else %}
+
+                <span class="status ethical">
+
+                    🟢 {{ result }}
+
+                </span>
+
+            {% endif %}
+
+        </p>
+
+
+        <!-- CONFIDENCE -->
+
+        <div class="confidence">
+
+            <strong>
+                Transformer Prediction Confidence:
+            </strong>
+
+            {{ "%.2f"|format(confidence * 100) }}%
+
+        </div>
+
+
+        <!-- BIAS -->
+
+        <div class="bias">
+
+            <strong>
+                Detected Bias:
+            </strong>
+
+            {{ bias }}
+
+        </div>
+
+
+        <!-- RECOMMENDATION -->
+
+        <div class="recommendation">
+
+            <strong>
+                Fair Recommendation:
+            </strong>
+
+            <p>
+                {{ recommendation }}
+            </p>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- EXAMPLE DECISIONS -->
+
+    <div class="examples">
+
+        <h3>
+            Example Decisions
+        </h3>
+
+        <p>
+            • Reject older applicants because they may not understand modern technology.
+        </p>
+
+        <p>
+            • Reject female applicants for technical jobs.
+        </p>
+
+        <p>
+            • Reject a candidate because they have a physical disability.
+        </p>
+
+        <p>
+            • Reject a candidate because they have a regional accent.
+        </p>
+
+        <p>
+            • Select candidates based on their technical skills and qualifications.
+        </p>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        MSc Artificial Intelligence |
+        Natural Language Processing
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

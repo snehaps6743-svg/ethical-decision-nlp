@@ -1,0 +1,9 @@
+Flask
+pandas
+scikit-learn
+numpy
+matplotlib
+gunicorn
+transformers
+torch
+openpyxl
